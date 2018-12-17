@@ -1,10 +1,12 @@
-$GOOGLE_CLIENT_EMAIL = ""
-$GOOGLE_PROJECT_ID = "-223315"
-$GOOGLE_JSON_KEY_LOCATION = '/home/andrey/gcp.json'
-$LOCAL_USER = "andrey"
-$LOCAL_SSH_KEY = "~/.ssh/id_rsa"
+
 
 Vagrant.configure("2") do |config|
+
+#variables
+vagrantfiles = %w[vagrant.var]
+vagrantfiles.each do |vagrantfile|
+  load File.expand_path(vagrantfile) if File.exists?(vagrantfile)
+end
 
 # Example Ubuntu provision script
 $PROVISION_UBUNTU = <<SCRIPT
